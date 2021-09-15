@@ -1,2 +1,6 @@
 /vendor/
 /data/phpunit_report/
+/.idea/
+/www/p/
+/www/js/cache/
+/www/serviceflow/

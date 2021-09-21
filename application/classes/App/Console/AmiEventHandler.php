@@ -103,6 +103,9 @@ class AmiEventHandler extends DbWorker
             $call['topic'] = ($call['direction'] === 'queue')
                 ? 'call.'.$call['direction'].'.'.$call['queue']
                 :'call.'.$call['direction'];
+            $call['call_dt'] = !empty($call['call_dt'])
+                ? (new \DateTime($call['call_dt']))->format(DATE_ISO8601)
+                : null;
             $data[] = $call;
             if(!empty($call['agent'])){
                 $call['topic'] = 'user.'.$call['agent'];

@@ -23,7 +23,7 @@ class Controller extends Back\Controller {
         $data = $this->adapter->query($sql,[null,null,json_encode(['limit' => $limit, 'offset' => $offset])])->toArray();
         array_walk($data, function (&$item){
             $item['call_dt'] = !empty($item['call_dt'])
-                ? (new \DateTime($item['call_dt']))->format('Y.m.d H:i:s')
+                ? (new \DateTime($item['call_dt']))->format(DATE_ISO8601)
                 : null;
             $item['direction'] = 'queue';
         });
